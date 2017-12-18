@@ -2,17 +2,17 @@
 
 **Stripe Dash** is an app using the [Stripe API](https://stripe.com/docs/api).
 
-Time spent: **X** hours spent in total
+Time spent: **6** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User has two tabs, one for Checkout, and one for Charges.
+- [x] User has two tabs, one for Checkout, and one for Charges.
 - [x] User can see the currently active tab.
-- [ ] User can create a charge for a desired amount on the Checkout tab.
+- [x] User can create a charge for a desired amount on the Checkout tab.
 - [ ] User sees an error message when there is a card processing error.
-- [ ] User can see past charges on the Charges tab.
+- [x] User can see past charges on the Charges tab.
 
 The following **optional** features are implemented:
 

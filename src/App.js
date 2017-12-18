@@ -15,14 +15,11 @@ class App extends Component {
     return (
 
       <TabList>
-        <Tab name="Checkout">
+        <Tab name="Checkout" default>
           <WrappedCheckout/>
         </Tab>
-        <Tab name="b" default>
+        <Tab name="Charges">
           <div><h2>Hello B</h2></div>
-        </Tab>
-        <Tab name="c">
-          <div><h2>Hello C</h2></div>
         </Tab>
       </TabList>
     );
