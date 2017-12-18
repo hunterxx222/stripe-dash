@@ -34,7 +34,7 @@ export default class Checkout extends Component {
     this.setState({
       latestCharge: "Creating token..."
     }, ()=> {
-      return request("tokens", secretKey, "POST", {
+      this.props.postPublic("tokens", {
         "card[number]":"4242424242424242",
         "card[exp_month]":"12",
         "card[exp_year]":"2018"
@@ -43,7 +43,7 @@ export default class Checkout extends Component {
           this.setState({
             latestCharge: "Creating charge..."
           });
-          return request("charges", secretKey, "POST", {
+          return this.props.postSecret("charges", {
             "amount": 2000,
             "currency": "usd",
             "description": "test charge",
