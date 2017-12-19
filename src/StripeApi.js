@@ -1,16 +1,19 @@
 import React from "react";
 import _ from "lodash";
 
-export function withStripe(WrappedComponent, publicKey, secretKey){
+export function withStripe(WrappedComponent, publicKey, secretKey) {
   const request = (route, key, method, postData) => {
-    const dataStr = method === "GET" ? null : _.toPairs(postData)
-      .map(a => {
-        return `${a[0]}=${a[1]}`;
-      })
-      .join("&");
+    const dataStr =
+      method === "GET"
+        ? null
+        : _.toPairs(postData)
+          .map(a => {
+            return `${a[0]}=${a[1]}`;
+          })
+          .join("&");
 
     return fetch(`https://api.stripe.com/v1/${route}`, {
-      method: "POST",
+      method: `${method}`,
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${key}`,
@@ -23,15 +26,22 @@ export function withStripe(WrappedComponent, publicKey, secretKey){
     postPublic(route, postData) {
       return request(route, publicKey, "POST", postData);
     }
-    postSecret(route,postData){
-      return request(route,secretKey,"POST", postData);
+    postSecret(route, postData) {
+      return request(route, secretKey, "POST", postData);
     }
-    render(){
-      return <WrappedComponent
-        postPublic={this.postPublic}
-        postSecret={this.postSecret}
-        {...this.props} 
-      />;
+    getCharges(route, postData) {
+      return request(route, secretKey, "GET", postData);
+    }
+
+    render() {
+      return (
+        <WrappedComponent
+          postPublic={this.postPublic}
+          postSecret={this.postSecret}
+          getCharges={this.getCharges}
+          {...this.props}
+        />
+      );
     }
   };
 }

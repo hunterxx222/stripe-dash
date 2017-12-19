@@ -11,8 +11,8 @@ The following **required** functionality is completed:
 - [x] User has two tabs, one for Checkout, and one for Charges.
 - [x] User can see the currently active tab.
 - [x] User can create a charge for a desired amount on the Checkout tab.
-- [ ] User sees an error message when there is a card processing error.
-- [ ] User can see past charges on the Charges tab.
+- [x] User sees an error message when there is a card processing error.
+- [x] User can see past charges on the Charges tab.
 
 The following **optional** features are implemented:
 
